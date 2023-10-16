@@ -1,9 +1,13 @@
+import FeedbackForm from "./components/FeedbackForm";
+import FeedbackOverview from "./components/FeedbackOverview";
+
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      this is new
+        <FeedbackForm />
+        <FeedbackOverview />
     </div>
   );
 }
