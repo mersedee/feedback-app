@@ -2,11 +2,11 @@
 const FeedbackForm = () => {
   return (
     <form className="py-5">
-      <h1 className="py-5 text-lg text-white">Feedbacks</h1>
+      <label className="py-5 text-lg text-white block">Feedback</label>
       <div className="mb-6">
-        <input
-          type="text"
-          placeholder="Enter feedback"
+        <textarea
+          rows={5}
+          placeholder="Write your feedback"
           className="
             w-full
             rounded-md

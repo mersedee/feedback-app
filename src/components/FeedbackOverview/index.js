@@ -1,14 +1,14 @@
 
 const FeedbackOverview = () => {
   return (
-    <div className="flex flex-col gap-2 py-5 text-white">
-      <h1 className="py-5 text-lg">Reviews</h1>
+    <div className="flex flex-col py-5 text-white">
+      <label className="py-5 text-lg">Reviews</label>
       <div className="flex bg-gray-600 bg-opacity-20 border border-gray-200 rounded-md">
         <ion-icon class="py-4 p-3" name="search-outline"></ion-icon>
         <input
-          type="email"
-          name="email"
-          id="email"
+          type="text"
+          name="search"
+          id="search"
           placeholder="Search Review"
           className="p-2 bg-transparent focus:outline-none"
         />
