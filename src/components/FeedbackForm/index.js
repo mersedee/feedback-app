@@ -3,7 +3,7 @@ const FeedbackForm = () => {
   return (
     <form className="py-5">
       <label className="py-5 text-lg text-white block">Feedback</label>
-      <div className="mb-6">
+      <div className="mb-3">
         <textarea
           rows={5}
           placeholder="Write your feedback"
@@ -22,6 +22,21 @@ const FeedbackForm = () => {
             focus:border-primary
             "
         />
+      </div>
+
+      <div className="flex items-center mb-6">
+        <input
+          checked
+          id="checked-checkbox"
+          type="checkbox"
+          value=""
+          className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+        />
+        <label
+          htmlFor="checked-checkbox"
+          className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+          I accept terms and conditions
+        </label>
       </div>
 
       <div className="mb-10">
