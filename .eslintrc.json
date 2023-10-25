@@ -30,6 +30,7 @@
         "quotes": ["error", "double"],
         "react/react-in-jsx-scope": "off",
         "import/no-extraneous-dependencies": "off",
-        "import/extensions": "off"
+        "import/extensions": "off",
+        "react/prop-types": "off"
     }
 }

@@ -1,5 +1,5 @@
 
-const FeedbackOverview = () => {
+const FeedbackOverview = ({list= []}) => {
   return (
     <div className="flex flex-col py-5 text-white">
       <label className="py-5 text-lg">Reviews</label>
@@ -14,60 +14,22 @@ const FeedbackOverview = () => {
         />
       </div>
 
-      <div className="flex flex-col gap-3 mt-14">
-        <div className="flex flex-col gap-4 bg-gray-700 p-4">
-          <div className="flex justify justify-between">
-            <div className="flex gap-2">
-              <div className="w-7 h-7 text-center rounded-full bg-red-500">J</div>
-              <span>Jess Hopkins</span>
-            </div>
-            <div className="flex p-1 gap-1 text-orange-300">
-              <ion-icon name="star"></ion-icon>
-              <ion-icon name="star"></ion-icon>
-              <ion-icon name="star"></ion-icon>
-              <ion-icon name="star"></ion-icon>
-              <ion-icon name="star-half"></ion-icon>
-            </div>
-          </div>
+      {list.length === 0 ? (
+        <div className="text-white text-center mt-14">There is no feedback</div>
+      ):(
+        <ul className="flex flex-col gap-3 mt-14">
+          {list.map((feedback) => (
+            <li key={feedback.id} className="flex flex-col gap-4 bg-gray-700 p-4">
+              <div className="flex gap-2">
+                <div className="w-7 h-7 text-center rounded-full bg-red-500">J</div>
+                <span>Jess Hopkins</span>
+              </div>
 
-          <div>
-                Gorgeous design! Even more responsive than the previous version. A pleasure to use!
-          </div>
-
-          <div className="flex justify-between">
-            <span>Feb 13, 2021</span>
-            <button className="p-1 px-2 bg-gray-900 hover:bg-gray-950 border border-gray-950 bg-opacity-60">
-              <ion-icon name="share-outline"></ion-icon> Share</button>
-          </div>
-        </div>
-
-        <div className="flex flex-col gap-4 bg-gray-700 p-4">
-          <div className="flex justify justify-between">
-            <div className="flex gap-2">
-              <div className="w-7 h-7 text-center rounded-full bg-yellow-500">A</div>
-              <span>Alice Banks</span>
-            </div>
-            <div className="flex p-1 gap-1 text-orange-300">
-              <ion-icon name="star"></ion-icon>
-              <ion-icon name="star"></ion-icon>
-              <ion-icon name="star"></ion-icon>
-              <ion-icon name="star"></ion-icon>
-              <ion-icon name="star"></ion-icon>
-
-            </div>
-          </div>
-
-          <div>
-                The device has a clean design and the metal housing feels sturdy in my hands. Soft rounded corners make it a pleasure to look at.
-          </div>
-
-          <div className="flex justify-between">
-            <span>Feb 13, 2021</span>
-            <button className="p-1 px-2 bg-gray-900 hover:bg-gray-950 border border-gray-950 bg-opacity-60">
-              <ion-icon name="share-outline"></ion-icon> Share</button>
-          </div>
-        </div>
-      </div>
+              <div>{feedback.text}</div>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 };
