@@ -1,12 +1,22 @@
+import {useState} from "react";
 
 const FeedbackForm = () => {
+  const [feedback, setFeedback] = useState("");
+  const [checkbox, setCheckbox] = useState(false);
+
+  const onChangeFeedback = (e) => setFeedback(e.target.value);
+  const onChangeCheckbox = () => setCheckbox(!checkbox);
+
+  const onSubmit = () => {console.log("feedback!")}
+
   return (
     <form className="py-5">
       <label className="py-5 text-lg text-white block">Feedback</label>
       <div className="mb-3">
         <textarea
           rows={5}
-          placeholder="Write your feedback"
+          placeholder="Enter your feedback"
+          onChange={onChangeFeedback}
           className="
             w-full
             rounded-md
@@ -26,10 +36,10 @@ const FeedbackForm = () => {
 
       <div className="flex items-center mb-6">
         <input
-          checked
+          onChange={onChangeCheckbox}
+          defaultChecked={checkbox}
           id="checked-checkbox"
           type="checkbox"
-          value=""
           className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
         />
         <label
@@ -40,9 +50,10 @@ const FeedbackForm = () => {
       </div>
 
       <div className="mb-10">
-        <input
-          type="submit"
-          value="Submit"
+        <button
+          type="button"
+          disabled={!feedback || !checkbox}
+          onClick={onSubmit}
           className="
             w-full
             rounded-md
@@ -51,12 +62,13 @@ const FeedbackForm = () => {
             py-3
             px-5
             bg-primary
-            text-base text-white
+            text-base
+            text-white
             cursor-pointer
             hover:bg-opacity-90
             transition
             "
-        />
+        >Submit</button>
       </div>
     </form>
   );
