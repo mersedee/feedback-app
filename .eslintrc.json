@@ -11,7 +11,8 @@
         {
             "files": [
                 "**/*.test.js",
-                "**/*.test.jsx"
+                "**/*.test.jsx",
+                "setupTests.js"
             ],
             "env": {
                 "jest": true

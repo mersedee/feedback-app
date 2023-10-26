@@ -1,13 +1,25 @@
 import {useState} from "react";
 
-const FeedbackForm = () => {
+const FeedbackForm = ({setFeedbacks}) => {
   const [feedback, setFeedback] = useState("");
   const [checkbox, setCheckbox] = useState(false);
 
   const onChangeFeedback = (e) => setFeedback(e.target.value);
   const onChangeCheckbox = () => setCheckbox(!checkbox);
 
-  const onSubmit = () => {console.log("feedback!")}
+  const onSubmit = async () => {
+    const response = await fetch("http://localhost:3100/save-feedback", {
+      method: "post",
+      headers: {
+        "content-type": "application/json"
+      },
+      body: JSON.stringify({text: feedback})
+    })
+
+    const savedFeedback = await response.json();
+    setFeedbacks((prev) => [...prev, savedFeedback]);
+    setFeedback("")
+  }
 
   return (
     <form className="py-5">
