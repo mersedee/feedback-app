@@ -1,13 +1,10 @@
 import "@testing-library/jest-dom";
-import { TextEncoder } from "util";
-
-global.TextEncoder = TextEncoder;
 
 import {server}  from "./mockes/node";
 
 beforeAll(() => {
   // Start the interception.
-  server.listen()
+  server.listen({ onUnhandledRequest: "bypass" })
 })
 
 afterEach(() => {

@@ -18,7 +18,7 @@ describe("Feedback Test", () => {
     expect(newFeedback).toBeInTheDocument();
   })
 
-  test.skip("Two Feedback should display after submit.", async () => {
+  test("Two Feedback should display after submit.", async () => {
     render(<App/>);
     const textBox = screen.getByLabelText("Feedback", {exact: false});
     const checkbox = screen.getByLabelText("I accept terms and conditions", {exact: false});
@@ -34,6 +34,6 @@ describe("Feedback Test", () => {
     await userEvent.click(btn);
 
     const feedbackList = await screen.findAllByRole("listitem");
-    expect(feedbackList).toBe(2);
+    expect(feedbackList.length).toBe(2);
   })
 })
