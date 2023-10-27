@@ -23,9 +23,10 @@ const FeedbackForm = ({setFeedbacks}) => {
 
   return (
     <form className="py-5">
-      <label className="py-5 text-lg text-white block">Feedback</label>
+      <label htmlFor="feedback" className="py-5 text-lg text-white block">Feedback</label>
       <div className="mb-3">
         <textarea
+          id="feedback"
           rows={5}
           placeholder="Enter your feedback"
           onChange={onChangeFeedback}
@@ -50,12 +51,12 @@ const FeedbackForm = ({setFeedbacks}) => {
         <input
           onChange={onChangeCheckbox}
           defaultChecked={checkbox}
-          id="checked-checkbox"
+          id="checkbox"
           type="checkbox"
           className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
         />
         <label
-          htmlFor="checked-checkbox"
+          htmlFor="checkbox"
           className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
           I accept terms and conditions
         </label>

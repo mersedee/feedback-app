@@ -14,7 +14,7 @@ app.post("/save-feedback", (req, res) => {
     text: req.body.text,
   }
   feedbacks.push(newFeedback)
-  res.send(201).json(newFeedback)
+  res.status(201).json(newFeedback)
 })
 
 app.listen(3100, () => {

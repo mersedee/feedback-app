@@ -7,8 +7,8 @@ describe("Test related to the form", () => {
     const textBox = screen.getByRole("textbox");
     expect(textBox).toBeInTheDocument();
 
-    const checkbox = screen.getByLabelText("I accept terms and conditions", {exact: false})
-    expect(checkbox).toBeInTheDocument()
+    const checkbox = screen.getByLabelText("I accept terms and conditions", {exact: false});
+    expect(checkbox).toBeInTheDocument();
 
     const btn = screen.getByRole("button", {name: "Submit", exact: false});
     expect(btn).toBeInTheDocument();
@@ -21,7 +21,7 @@ describe("Test related to the form", () => {
     const checkbox = screen.getByLabelText("I accept terms and conditions", {exact: false});
     const btn = screen.getByRole("button", {name: "Submit", exact: false});
 
-    fireEvent.change(textBox, {target: {value: "It was great!"}})
+    fireEvent.change(textBox, {target: {value: "It was great!"}});
     fireEvent.click(checkbox); // check the checkbox
 
     expect(btn).toBeEnabled();
